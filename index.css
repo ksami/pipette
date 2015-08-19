@@ -1,0 +1,23 @@
+.row{
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.col{
+    width: 49%;
+    float: left;
+}
+
+.label{
+    display: block;
+}
+
+button{
+    display: block;
+}
+
+#textAreas{
+    height: 16em;
+}
