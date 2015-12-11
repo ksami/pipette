@@ -1,29 +1,23 @@
 var _ = require('underscore');
 var rev = require('underscore.string/reverse');
 
-var sort = function(arr){return arr.sort();};
-var reverse = function(arr){return _.map(arr, rev);};
-var number = function(arr){return _.map(arr, function(str, idx){return idx+'. '+str;});};
 
-var funcArr = [
-    sort,
-    reverse,
-    number
-];
+var pipette = {
+    'sort': arr=>arr.sort(),
+    'reverse': arr=>_.map(arr,rev),
+    'number': arr=>_.map(arr,(str,idx)=>`${idx+1}. ${str}`),
+    'unique': arr=>_.uniq(arr)
+};
 
 function run(){
-    var text = document.getElementById('inputtext').value;
+    var text = _.map(document.getElementById('inputtext').value.split('\n'), str=>str.trim());
+    var command = _.map(document.getElementById('commandtext').value.split('|'), str=>str.trim());
 
-    var func1 = funcArr[document.getElementById('func1').selectedIndex];
-    var func2 = funcArr[document.getElementById('func2').selectedIndex];
-    var func3 = funcArr[document.getElementById('func3').selectedIndex];
-    console.log(func1);
+    var output = _.reduce(command, (arr, cmd)=>pipette[cmd](arr), text);
+    var outputtext = _.reduce(output, (memo, str)=>`${memo}\n${str}`);
 
-    var textArr = text.split('\n');
-    var output = _.reduce(func3(func2(func1(textArr))), function(memo, str){return memo+'\n'+str;});
-
-
-    document.getElementById('outputtext').value = output;
+    document.getElementById('outputtext').value = outputtext;
 }
+
 
 document.getElementById('clickme').onclick = run;
