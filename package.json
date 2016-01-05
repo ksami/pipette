@@ -1,0 +1,26 @@
+{
+  "name": "pipette",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "awk": "^1.0.0",
+    "babel-polyfill": "^6.3.14",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "./build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksami/pipette.git"
+  },
+  "author": "ksami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksami/pipette/issues"
+  },
+  "homepage": "https://github.com/ksami/pipette#readme"
+}

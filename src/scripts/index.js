@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 var _ = require('underscore');
 var rev = require('underscore.string/reverse');
 

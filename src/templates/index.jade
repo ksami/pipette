@@ -1,0 +1,23 @@
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet', href='css/index.css', type='text/css')
+  title pipette
+
+body
+  #textAreas.row
+    .col
+      .label Input Text
+        textarea#inputtext(rows='10', cols='80')
+        button#clickme Run!
+
+    .col
+      .label Output Text
+      textarea#outputtext(rows='10', cols='80')
+
+  .row
+    .col
+      .label Command
+      input#commandtext
+
+
+script(src='bundle.js')
