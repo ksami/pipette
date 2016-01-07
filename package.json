@@ -8,7 +8,9 @@
     "underscore": "^1.8.3",
     "underscore.string": "^3.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jade": "^1.11.0"
+  },
   "scripts": {
     "build": "./build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"

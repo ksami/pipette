@@ -2,14 +2,7 @@ require('babel-polyfill');
 
 var _ = require('underscore');
 var rev = require('underscore.string/reverse');
-
-
-var pipette = {
-    'sort': arr=>arr.sort(),
-    'reverse': arr=>_.map(arr,rev),
-    'number': arr=>_.map(arr,(str,idx)=>`${idx+1}. ${str}`),
-    'unique': arr=>_.uniq(arr)
-};
+var pipette = require('./pipette');
 
 function run(){
     var text = _.map(document.getElementById('inputtext').value.split('\n'), str=>str.trim());

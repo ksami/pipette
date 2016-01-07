@@ -38,12 +38,16 @@ body
     .row
       .col-md-3
         .column
-          -
-            commands = [1, 2, 3, 4, 5]
-          each cmd in commands
+          each fn, key in pipette
             .portlet
-              .portlet-header Header #{cmd}
-              .portlet-content Content #{cmd}
+              .portlet-header #{key}
+              .portlet-content #{fn.toString()}
+              .portlet-next-arrow
+                span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+          .portlet
+            .portlet-header Output to Textbox (dummy func)
+            .portlet-content str=>print(str)
+
 
     // Command debug
     .row
