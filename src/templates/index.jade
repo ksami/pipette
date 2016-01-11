@@ -24,38 +24,62 @@ body
         a.navbar-brand(href='#') Pipette
 
   .container-fluid
-    #textAreas.row
-      .col-md-6
-        .input-group
-          textarea#inputtext.form-control(rows='10', cols='80', placeholder='input text')
-
-
-      .col-md-6
-        .input-group
-          textarea#outputtext.form-control(rows='10', cols='80', placeholder='output text')
-
-    // Command
-    .row
-      .col-md-3
-        .column
-          each fn, key in pipette
-            .portlet
-              .portlet-header #{key}
-              .portlet-content #{fn.toString()}
-              .portlet-next-arrow
-                span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
-          .portlet
-            .portlet-header Output to Textbox (dummy func)
-            .portlet-content str=>print(str)
-
-
     // Command debug
     .row
       .col-md-3
         .input-group
-          input#commandtext.form-control(type='text', placeholder='command')
+          input#commandtext.form-control(type='text', placeholder='debug command')
           span.input-group-btn
             button#clickme.btn.btn-default(type='button') Run!
+
+
+    .row
+
+      // Sidebar
+      .col-md-1
+        .row
+          .col-md-12
+            h4 Functions
+            #sidebar.column
+              each fn, key in pipette
+                .portlet
+                  .portlet-header #{key}
+                  .portlet-content #{fn.toString()}
+                  .portlet-next-arrow
+                    span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+
+
+      // Page
+      .col-md-10.col-md-offset-1
+        .row
+
+          .col-md-4
+            .row
+              // Command chain
+              .col-md-3
+                h4 Command chain
+                #chain.column
+                  each fn, key in pipette
+                    .portlet
+                      .portlet-header #{key}
+                      .portlet-content #{fn.toString()}
+                      .portlet-next-arrow
+                        span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+                  #endChain.portlet
+                    .portlet-header Output to Textbox (dummy func)
+                    .portlet-content parameters for function here
+
+          .col-md-8
+            .row
+              // Input text
+              .col-md-6
+                .input-group
+                  textarea#inputtext.form-control(rows='10', cols='80', placeholder='input text')
+              // Output text
+              .col-md-6
+                .input-group
+                  textarea#outputtext.form-control(rows='10', cols='80', placeholder='output text')
+
 
 
 script(src='http://code.jquery.com/jquery-1.11.3.min.js')

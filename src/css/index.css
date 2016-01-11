@@ -11,12 +11,14 @@
   padding: 0.2em 0.3em;
   margin-bottom: 0.5em;
   position: relative;
+  cursor: move;
 }
 .portlet-toggle {
   position: absolute;
   top: 50%;
   right: 0;
   margin-top: -8px;
+  cursor: auto;
 }
 .portlet-content {
   padding: 0.4em;
@@ -28,4 +30,9 @@
 }
 .portlet-next-arrow {
   text-align: center;
+}
+
+#sidebar {
+  border-right-width: 1px;
+  border-right-style: dashed;
 }
