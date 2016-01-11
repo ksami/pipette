@@ -26,7 +26,7 @@ $(function(){
     cursor: 'move',
     cancel: '.portlet-toggle',
     placeholder: 'portlet-placeholder ui-corner-all',
-    items: '> .portlet:not(:last)',
+    items: '> .portlet:not(#endChain)',
     receive: function(ev, ui){
       $item = $(ui.helper[0]);
       $item.toggleClass('ui-draggable');

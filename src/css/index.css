@@ -13,6 +13,9 @@
   position: relative;
   cursor: move;
 }
+#endChain .portlet-header {
+  cursor: auto;
+}
 .portlet-toggle {
   position: absolute;
   top: 50%;
