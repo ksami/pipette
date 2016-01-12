@@ -1,3 +1,12 @@
+mixin functions
+  each fn, key in pipette
+    .portlet(data-func=key)
+      .portlet-header #{key}
+      .portlet-content #{fn.toString()}
+      .portlet-next-arrow
+        span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+
+
 head
   meta(charset='utf-8')
   meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -41,12 +50,7 @@ body
           .col-md-12
             h4 Functions
             #sidebar.column
-              each fn, key in pipette
-                .portlet
-                  .portlet-header #{key}
-                  .portlet-content #{fn.toString()}
-                  .portlet-next-arrow
-                    span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+              +functions
 
 
       // Page
@@ -59,12 +63,8 @@ body
               .col-md-3
                 h4 Command chain
                 #chain.column
-                  each fn, key in pipette
-                    .portlet
-                      .portlet-header #{key}
-                      .portlet-content #{fn.toString()}
-                      .portlet-next-arrow
-                        span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+                  +functions
+
                   #endChain.portlet
                     .portlet-header Output to Textbox (dummy func)
                     .portlet-content parameters for function here

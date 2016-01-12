@@ -5,16 +5,19 @@ var rev = require('underscore.string/reverse');
 var pipette = require('./pipette');
 
 //TODO: get sortable order of functions
-function run(){
-    var text = _.map(document.getElementById('inputtext').value.split('\n'), str=>str.trim());
-    var command = _.map(document.getElementById('commandtext').value.split('|'), str=>str.trim());
+// function run(){
+//     var text = _.map(document.getElementById('inputtext').value.split('\n'), str=>str.trim());
+//     var command = _.map(document.getElementById('commandtext').value.split('|'), str=>str.trim());
 
-    var output = _.reduce(command, (arr, cmd)=>pipette[cmd](arr), text);
-    var outputtext = _.reduce(output, (memo, str)=>`${memo}\n${str}`);
+//     var output = _.reduce(command, (arr, cmd)=>pipette[cmd](arr), text);
+//     var outputtext = _.reduce(output, (memo, str)=>`${memo}\n${str}`);
 
-    document.getElementById('outputtext').value = outputtext;
+//     document.getElementById('outputtext').value = outputtext;
+// }
+function run() {
+  var arr = $('#chain').sortable('toArray', {attribute: 'data-func'});
+  console.log(arr);
 }
-
 
 document.getElementById('clickme').onclick = run;
 
