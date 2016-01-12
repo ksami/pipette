@@ -15,8 +15,11 @@ var pipette = require('./pipette');
 //     document.getElementById('outputtext').value = outputtext;
 // }
 function run() {
-  var arr = $('#chain').sortable('toArray', {attribute: 'data-func'});
-  console.log(arr);
+  var inputtext = document.getElementById('inputtext').value;
+  var cmds = $('#chain').sortable('toArray', {attribute: 'data-func'});
+  var outputtext = _.reduce(cmds, (arg, cmd)=>pipette[cmd](arg), inputtext);
+  console.log(outputtext);
+  document.getElementById('outputtext').value = outputtext;
 }
 
 document.getElementById('clickme').onclick = run;
@@ -29,7 +32,8 @@ $(function(){
     cursor: 'move',
     cancel: '.portlet-toggle',
     placeholder: 'portlet-placeholder ui-corner-all',
-    items: '> .portlet:not(#endChain)',
+    forcePlaceholderSize: true,
+    dropOnEmpty: true,
     receive: function(ev, ui){
       $item = $(ui.helper[0]);
       $item.toggleClass('ui-draggable');

@@ -1,9 +1,29 @@
 var _ = require('underscore');
-var rev = require('underscore.string/reverse');
+var s = require('underscore.string');
 
 module.exports = {
-    'sort': arr=>arr.sort(),
-    'reverse': arr=>_.map(arr,rev),
-    'number': arr=>_.map(arr,(str,idx)=>`${idx+1}. ${str}`),
-    'unique': arr=>_.uniq(arr)
+    'sort': arg=>{
+      if(_.isArray(arg)) {return arg.sort(s.naturalCmp);}
+      else {return arg;}
+    },
+    'reverse': arg=>{
+      if(_.isArray(arg)) {return _.map(arg,s.reverse);}
+      else {return s.reverse(arg);}
+    },
+    'number': arg=>{
+      if(_.isArray(arg)) {return _.map(arg,(str,idx)=>`${idx+1}. ${str}`);}
+      else {return arg;}
+    },
+    'unique': arg=>{
+      if(_.isArray(arg)) {return _.uniq(arg);}
+      else {return arg;}
+    },
+    'split': arg=>{
+      if(_.isArray(arg)) {return arg;}
+      else {return s.lines(arg);}
+    },
+    'join': arg=>{
+      if(_.isArray(arg)) {return arg.join('\n');}
+      else {return arg;}
+    }
 };

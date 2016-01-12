@@ -60,14 +60,12 @@ body
           .col-md-4
             .row
               // Command chain
-              .col-md-3
+              .col-md-12
                 h4 Command chain
-                #chain.column
-                  +functions
+                .column
+                  span.glyphicon.glyphicon-arrow-down(aria-hidden='true')
+                  #chain
 
-                  #endChain.portlet
-                    .portlet-header Output to Textbox (dummy func)
-                    .portlet-content parameters for function here
 
           .col-md-8
             .row

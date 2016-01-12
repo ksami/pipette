@@ -3,6 +3,9 @@
   float: left;
   padding-bottom: 100px;
 }
+#chain {
+  min-height: 50px;
+}
 .portlet {
   margin: 0 1em 1em 0;
   padding: 0.3em;
@@ -12,9 +15,6 @@
   margin-bottom: 0.5em;
   position: relative;
   cursor: move;
-}
-#endChain .portlet-header {
-  cursor: auto;
 }
 .portlet-toggle {
   position: absolute;
@@ -30,6 +30,7 @@
   border: 1px dotted black;
   margin: 0 1em 1em 0;
   height: 50px;
+  background-color: #dddddd;
 }
 .portlet-next-arrow {
   text-align: center;
